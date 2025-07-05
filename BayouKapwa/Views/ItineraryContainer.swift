@@ -9,11 +9,28 @@ import SwiftUI
 
 struct ItineraryContainer: View {
 
-    let tour: Tour // enum
+    let tour: Tour
 
     var body: some View {
-        // switch on tour to present different views
-        Text(tour.tourOption?.rawValue ?? "tour option nil")
+        VStack {
+            switch tour.tourOption {
+            case .allStopsManilaVillage:
+                ManilaVillageWithStopsItineraryView()
+            case .allStopsSaintMalo:
+                StMaloWithStopsItineraryView()
+            case .allStopsBoth:
+                Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with future both tour
+            case .noStopsManilaVillage:
+                ManilaVillageNoStopsItineraryView()
+            case .noStopsSaintMalo:
+                StMaloNoStopsItineraryView()
+            case .noStopsBoth:
+                Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with future both tour
+            case .none:
+                Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with error view
+            }
+            // TODO: add next button
+        }
     }
     
     // TODO: set blocks of views - st malo stops, st malo, manila village stops, manila village, use tour enum to figure out entry and exit points aka navigation links for each one.
@@ -25,5 +42,5 @@ struct ItineraryContainer: View {
 }
 
 #Preview {
-    ItineraryContainer(tour: Tour(tourStop: .allStops, tourLocation: .both))
+    ItineraryContainer(tour: Tour(tourStop: .allStops, tourLocation: .saintMalo))
 }
