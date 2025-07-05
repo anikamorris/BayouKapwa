@@ -33,7 +33,7 @@ struct Tour {
     let tourStop: TourStop?
     let tourLocation: TourLocation?
     let tourOption: TourOption?
-    
+
     // TODO: init uses stops and location to pull all stops and info
     init(tourStop: TourStop?, tourLocation: TourLocation?) {
         self.tourStop = tourStop

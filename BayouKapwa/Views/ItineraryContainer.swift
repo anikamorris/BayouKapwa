@@ -47,7 +47,7 @@ struct ItineraryContainer: View {
         }
         .padding()
     }
-    
+
     // next button goes to fhfs intro, los islenos intro, mv first stop intro, or mv intro
     
     // TODO: set blocks of views - st malo stops, st malo, manila village stops, manila village, use tour enum to figure out entry and exit points aka navigation links for each one.

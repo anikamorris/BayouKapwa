@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CHTFBooksIntro: View {
+
+    @State private var showHours = false
+
     var body: some View {
         VStack {
             Text("Coffeehouse and Two Fish Books")
@@ -23,6 +26,7 @@ struct CHTFBooksIntro: View {
         }
         .padding()
     }
+
 }
 
 #Preview {

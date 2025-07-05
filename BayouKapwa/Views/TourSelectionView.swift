@@ -16,7 +16,7 @@ struct TourSelectionView: View {
         VStack {
             Text("Choose your tour")
                 .font(.largeTitle)
-            
+
             Picker("Tour location options", selection: $tourLocation) {
                 ForEach(TourLocation.allCases) { location in
                     Text(location.rawValue)
@@ -24,14 +24,14 @@ struct TourSelectionView: View {
             }
             .pickerStyle(.segmented)
             .padding(.vertical)
-        
+
             switch tourLocation {
             case .manilaVillage:
                 Text("Manila Village Info")
             case .saintMalo:
                 Text("Saint Malo Info")
             }
-            
+
             Picker("All stops", selection: $tourStop) {
                 ForEach(TourStop.allCases) { value in
                     Text(value.rawValue)
@@ -39,14 +39,14 @@ struct TourSelectionView: View {
             }
             .pickerStyle(.segmented)
             .padding(.vertical)
-            
+
             switch tourStop {
             case .allStops:
                 Text("All stops info")
             case .noStops:
                 Text("No stops info")
             }
-            
+
             Spacer()
 
             NavigationLink {
@@ -57,6 +57,7 @@ struct TourSelectionView: View {
         }
         .padding()
     }
+
 }
 
 #Preview {
