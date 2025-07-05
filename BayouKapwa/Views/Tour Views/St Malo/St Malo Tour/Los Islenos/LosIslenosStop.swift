@@ -9,7 +9,13 @@ import SwiftUI
 
 struct LosIslenosStop: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Los Isleños Museum Complex")
+            Text("Placeholder Description")
+            NavigationLink("Next stop") {
+                StMaloMarkerIntro()
+            }
+        }
     }
 }
 

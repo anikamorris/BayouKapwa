@@ -18,7 +18,7 @@ struct CHTFBooksIntro: View {
             CHTWBooksHoursView()
             Text("Placeholder descriptions")
             NavigationLink("Skip this stop") {
-                EmptyView()
+                LosIslenosIntro()
             }
             NavigationLink("Will make this stop") {
                 CHTFBooksCeremony()

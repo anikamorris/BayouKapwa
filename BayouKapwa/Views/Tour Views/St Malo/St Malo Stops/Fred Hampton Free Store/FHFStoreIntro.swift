@@ -10,7 +10,6 @@ import SwiftUI
 struct FHFStoreIntro: View {
     var body: some View {
         VStack {
-            Text("First Stop")
             Text("Fred Hampton Free Store")
             Text("5523 St Claude Ave, New Orleans, LA 70117")
             Text("Placeholder description")

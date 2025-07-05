@@ -12,7 +12,7 @@ struct FHFStoreStop: View {
         VStack {
             Text("Fred Hampton Free Store")
             Text("'Phantom Visions' Mural")
-            NavigationLink("Next Stop") {
+            NavigationLink("Next stop") {
                 CHTFBooksIntro()
             }
         }

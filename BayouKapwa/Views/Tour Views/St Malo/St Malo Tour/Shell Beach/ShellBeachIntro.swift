@@ -9,7 +9,13 @@ import SwiftUI
 
 struct ShellBeachIntro: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Shell Beach")
+            Text("Placeholder description")
+            NavigationLink("I'm on my way") {
+                ShellBeachCeremony()
+            }
+        }
     }
 }
 

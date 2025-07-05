@@ -10,7 +10,7 @@ import SwiftUI
 struct FHFStoreCeremony: View {
     var body: some View {
         VStack {
-            Text("First Ceremony")
+            Text("Ceremony")
             NavigationLink("Finished") {
                 FHFStoreStop()
             }

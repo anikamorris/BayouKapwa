@@ -12,6 +12,9 @@ struct CHTFBooksStop: View {
         VStack {
             Text("Coffeehouse and Two Fish Books")
             Text("Placeholder Description")
+            NavigationLink("Next stop") {
+                LosIslenosIntro()
+            }
         }
     }
 }
