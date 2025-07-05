@@ -43,5 +43,5 @@ struct ItineraryContainer: View {
 }
 
 #Preview {
-    ItineraryContainer(tour: Tour(tourStop: .allStops, tourLocation: .saintMalo))
+    ItineraryContainer(tour: Tour(tourStop: .noStops, tourLocation: .saintMalo))
 }
