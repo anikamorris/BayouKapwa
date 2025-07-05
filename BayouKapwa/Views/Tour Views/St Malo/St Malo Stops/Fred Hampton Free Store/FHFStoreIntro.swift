@@ -11,7 +11,8 @@ struct FHFStoreIntro: View {
     var body: some View {
         VStack {
             Text("Fred Hampton Free Store")
-                .font(.largeTitle)
+                .font(.title)
+                .multilineTextAlignment(.center)
                 .padding(.top)
             Text("5523 St Claude Ave, New Orleans, LA 70117")
                 .padding(.top, 2)

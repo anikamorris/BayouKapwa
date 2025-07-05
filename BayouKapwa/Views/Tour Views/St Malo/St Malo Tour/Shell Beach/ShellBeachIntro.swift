@@ -11,7 +11,7 @@ struct ShellBeachIntro: View {
     var body: some View {
         VStack {
             Text("Shell Beach")
-                .font(.largeTitle)
+                .font(.title)
                 .padding()
             Text("Placeholder description")
             Spacer()

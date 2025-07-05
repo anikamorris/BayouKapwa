@@ -11,7 +11,8 @@ struct StMaloMarkerIntro: View {
     var body: some View {
         VStack {
             Text("Saint Malo Historical Marker")
-                .font(.largeTitle)
+                .font(.title)
+                .multilineTextAlignment(.center)
                 .padding()
             Text("Where to walk and considerations for your walk")
             Spacer()

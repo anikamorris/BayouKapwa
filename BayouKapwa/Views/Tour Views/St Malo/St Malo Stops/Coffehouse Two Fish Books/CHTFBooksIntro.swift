@@ -9,12 +9,11 @@ import SwiftUI
 
 struct CHTFBooksIntro: View {
 
-    @State private var showHours = false
-
     var body: some View {
         VStack {
             Text("Coffeehouse and \nTwo Fish Books")
-                .font(.largeTitle)
+                .font(.title)
+                .multilineTextAlignment(.center)
                 .padding(.top)
             Text("7265 St Claude Ave, Arabi, LA 70032")
                 .padding(.top, 2)
