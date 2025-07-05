@@ -13,24 +13,25 @@ struct ItineraryContainer: View {
 
     var body: some View {
         VStack {
+            Text("Your Itinerary")
+                .font(.largeTitle)
+                .padding()
             switch tour.tourOption {
             case .allStopsManilaVillage:
                 ManilaVillageWithStopsItineraryView()
             case .allStopsSaintMalo:
                 StMaloWithStopsItineraryView()
-            case .allStopsBoth:
-                Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with future both tour
             case .noStopsManilaVillage:
                 ManilaVillageNoStopsItineraryView()
             case .noStopsSaintMalo:
                 StMaloNoStopsItineraryView()
-            case .noStopsBoth:
-                Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with future both tour
             case .none:
                 Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with error view
             }
+            Spacer()
             // TODO: add next button
         }
+        .padding()
     }
     
     // TODO: set blocks of views - st malo stops, st malo, manila village stops, manila village, use tour enum to figure out entry and exit points aka navigation links for each one.

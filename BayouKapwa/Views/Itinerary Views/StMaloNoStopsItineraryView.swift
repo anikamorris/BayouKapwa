@@ -9,7 +9,10 @@ import SwiftUI
 
 struct StMaloNoStopsItineraryView: View {
     var body: some View {
-        Text("St Malo No Stops")
+        VStack {
+            Text("Los Isleños Museum Complex / St. Malo Historical Marker")
+            Text("Shell Beach")
+        }
     }
 }
 

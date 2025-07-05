@@ -9,7 +9,28 @@ import SwiftUI
 
 struct StMaloWithStopsItineraryView: View {
     var body: some View {
-        Text("Saint Malo With Stops")
+        VStack(alignment: .leading) {
+            Text("Fred Hampton Free Store")
+                .font(.title2)
+                .padding(.top)
+            Text("description")
+                .padding(.leading)
+            Text("Two Fish Books / Coffeehouse")
+                .font(.title2)
+                .padding(.top)
+            Text("description")
+                .padding(.leading)
+            Text("Los Isleños Museum Complex / St. Malo Historical Marker")
+                .font(.title2)
+                .padding(.top)
+            Text("description")
+                .padding(.leading)
+            Text("Shell Beach")
+                .font(.title2)
+                .padding(.top)
+            Text("description")
+                .padding(.leading)
+        }
     }
 }
 
