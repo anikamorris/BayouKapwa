@@ -13,16 +13,24 @@ struct CHTFBooksIntro: View {
 
     var body: some View {
         VStack {
-            Text("Coffeehouse and Two Fish Books")
+            Text("Coffeehouse and \nTwo Fish Books")
+                .font(.largeTitle)
+                .padding(.top)
             Text("7265 St Claude Ave, Arabi, LA 70032")
+                .padding(.top, 2)
+                .padding(.bottom)
             CHTWBooksHoursView()
+                .padding(.bottom)
             Text("Placeholder descriptions")
+            Spacer()
             NavigationLink("Skip this stop") {
                 LosIslenosIntro()
             }
+            .padding()
             NavigationLink("Will make this stop") {
                 CHTFBooksCeremony()
             }
+            .padding()
         }
         .padding()
     }

@@ -11,7 +11,7 @@ struct CHTWBooksHoursView: View {
     var body: some View {
         HStack {
             VStack {
-                Text("Coffeehouse Hours")
+                Text("Coffeehouse")
                 HStack {
                     Text("Sat")
                     Spacer()
@@ -48,9 +48,10 @@ struct CHTWBooksHoursView: View {
                     Text("6am - 6pm")
                 }
             }
+            .padding(.horizontal, 16)
             Spacer()
             VStack {
-                Text("Two Fish Books Hours")
+                Text("Two Fish Books")
                 HStack {
                     Text("Sat")
                     Spacer()
@@ -87,6 +88,7 @@ struct CHTWBooksHoursView: View {
                     Text("10am - 6pm")
                 }
             }
+            .padding(.horizontal, 12)
         }
     }
 }
