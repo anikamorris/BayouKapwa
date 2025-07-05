@@ -1,0 +1,30 @@
+//
+//  CHTFBooksIntro.swift
+//  BayouKapwa
+//
+//  Created by Anika Morris on 7/5/25.
+//
+
+import SwiftUI
+
+struct CHTFBooksIntro: View {
+    var body: some View {
+        VStack {
+            Text("Coffeehouse and Two Fish Books")
+            Text("7265 St Claude Ave, Arabi, LA 70032")
+            CHTWBooksHoursView()
+            Text("Placeholder descriptions")
+            NavigationLink("Skip this stop") {
+                EmptyView()
+            }
+            NavigationLink("Will make this stop") {
+                CHTFBooksCeremony()
+            }
+        }
+        .padding()
+    }
+}
+
+#Preview {
+    CHTFBooksIntro()
+}

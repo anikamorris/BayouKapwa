@@ -9,7 +9,12 @@ import SwiftUI
 
 struct CHTFBooksCeremony: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("First Ceremony")
+            NavigationLink("Finished") {
+                CHTFBooksStop()
+            }
+        }
     }
 }
 

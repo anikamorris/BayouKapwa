@@ -30,9 +30,25 @@ struct ItineraryContainer: View {
             }
             Spacer()
             // TODO: add next button
+            NavigationLink("Next") {
+                switch tour.tourOption {
+                case .allStopsManilaVillage:
+                    EmptyView()
+                case .allStopsSaintMalo:
+                    FHFStoreIntro()
+                case .noStopsManilaVillage:
+                    EmptyView()
+                case .noStopsSaintMalo:
+                    EmptyView()
+                case .none:
+                    EmptyView() // TODO: replace with error view
+                }
+            }
         }
         .padding()
     }
+    
+    // next button goes to fhfs intro, los islenos intro, mv first stop intro, or mv intro
     
     // TODO: set blocks of views - st malo stops, st malo, manila village stops, manila village, use tour enum to figure out entry and exit points aka navigation links for each one.
     // st malo stops will always exit to st malo, manila village stops will always exit to manila village.
