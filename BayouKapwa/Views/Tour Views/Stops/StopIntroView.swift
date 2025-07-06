@@ -24,10 +24,7 @@ struct StopIntroView: View {
                     .padding(.top, 2)
                     .padding(.bottom)
             }
-            if location == .chtfbIntro {
-                CHTWBooksHoursView()
-                    .padding(.bottom)
-            }
+            IntroHoursView(location: location)
             if let shortDescription = stop.shortDescription {
                 Text("\(shortDescription)")
             } else {
