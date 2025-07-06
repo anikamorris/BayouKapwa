@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct LosIslenosStop: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Los Isleños Museum Complex")
             Text("Placeholder Description")
-            NavigationLink("Next stop") {
-                StMaloMarkerIntro()
+            Button("Next stop") {
+                path.append(NavigationValue(navLocation: .stMaloMarkerIntro, tour: nil))
             }
         }
     }
-}
 
-#Preview {
-    LosIslenosStop()
 }

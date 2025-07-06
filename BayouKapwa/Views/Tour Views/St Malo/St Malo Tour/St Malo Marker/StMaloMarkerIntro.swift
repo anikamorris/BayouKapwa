@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct StMaloMarkerIntro: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Saint Malo Historical Marker")
@@ -16,15 +19,12 @@ struct StMaloMarkerIntro: View {
                 .padding()
             Text("Where to walk and considerations for your walk")
             Spacer()
-            NavigationLink("I'm at the marker") {
-                StMaloMarkerStop()
+            Button("I'm at the marker") {
+                path.append(NavigationValue(navLocation: .stMaloMarkerStop, tour: nil))
             }
             .padding()
         }
         .padding()
     }
-}
 
-#Preview {
-    StMaloMarkerIntro()
 }

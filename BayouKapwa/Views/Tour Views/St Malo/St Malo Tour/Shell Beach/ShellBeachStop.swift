@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ShellBeachStop: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Shell Beach")
             Text("Placeholder description")
-            NavigationLink("Finished tour") {
-//                StMaloCompletionView()
+            Button("Finish Tour") {
+                path.append(NavigationValue(navLocation: .stMaloCompletionView, tour: nil))
             }
         }
     }
-}
 
-#Preview {
-    ShellBeachStop()
 }

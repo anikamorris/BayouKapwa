@@ -37,11 +37,12 @@ struct LosIslenosIntro: View {
             .padding(.bottom)
             Text("Placeholder description")
             Spacer()
-            NavigationLink("I'm on my way") {
-                LosIslenosCeremony()
+            Button("I'm on my way") {
+                path.append(NavigationValue(navLocation: .losIslenosCeremony, tour: nil))
             }
             .padding()
         }
         .padding()
     }
+
 }

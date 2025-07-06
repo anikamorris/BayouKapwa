@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct StMaloMarkerStop: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Saint Malo Historical Marker")
             Text("Placeholder description")
-            NavigationLink("Next stop") {
-                ShellBeachIntro()
+            Button("Next stop") {
+                path.append(NavigationValue(navLocation: .shellBeachIntro, tour: nil))
             }
         }
     }
-}
 
-#Preview {
-    StMaloMarkerStop()
 }

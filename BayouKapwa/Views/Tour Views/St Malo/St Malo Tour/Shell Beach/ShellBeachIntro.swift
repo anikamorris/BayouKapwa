@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ShellBeachIntro: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Shell Beach")
@@ -15,15 +18,12 @@ struct ShellBeachIntro: View {
                 .padding()
             Text("Placeholder description")
             Spacer()
-            NavigationLink("I'm on my way") {
-                ShellBeachCeremony()
+            Button("I'm on my way") {
+                path.append(NavigationValue(navLocation: .shellBeachCeremony, tour: nil))
             }
             .padding()
         }
         .padding()
     }
-}
 
-#Preview {
-    ShellBeachIntro()
 }

@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct LosIslenosCeremony: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Ceremony")
-            NavigationLink("Finished") {
-                LosIslenosStop()
+            Button("Finished") {
+                path.append(NavigationValue(navLocation: .losIslenosStop, tour: nil))
             }
         }
     }
-}
 
-#Preview {
-    LosIslenosCeremony()
 }

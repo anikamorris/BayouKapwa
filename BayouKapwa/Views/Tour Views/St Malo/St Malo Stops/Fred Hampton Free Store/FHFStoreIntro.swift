@@ -31,4 +31,5 @@ struct FHFStoreIntro: View {
         }
         .padding()
     }
+
 }

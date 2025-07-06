@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ShellBeachCeremony: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Ceremony")
-            NavigationLink("Finished") {
-                ShellBeachStop()
+            Button("Finished") {
+                path.append(NavigationValue(navLocation: .shellBeachStop, tour: nil))
             }
         }
     }
-}
 
-#Preview {
-    ShellBeachCeremony()
 }

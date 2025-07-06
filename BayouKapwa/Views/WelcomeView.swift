@@ -39,6 +39,14 @@ struct WelcomeView: View {
                 case .chtfbCeremony: CHTFBooksCeremony(path: $path)
                 case .chtfbStop: CHTFBooksStop(path: $path)
                 case .losIslenosIntro: LosIslenosIntro(path: $path)
+                case .losIslenosCeremony: LosIslenosCeremony(path: $path)
+                case .losIslenosStop: LosIslenosStop(path: $path)
+                case .stMaloMarkerIntro: StMaloMarkerIntro(path: $path)
+                case .stMaloMarkerStop: StMaloMarkerStop(path: $path)
+                case .shellBeachIntro: ShellBeachIntro(path: $path)
+                case .shellBeachCeremony: ShellBeachCeremony(path: $path)
+                case .shellBeachStop: ShellBeachStop(path: $path)
+                case .stMaloCompletionView: StMaloCompletionView(path: $path)
                 }
             }
         }
