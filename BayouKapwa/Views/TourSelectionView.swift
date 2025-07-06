@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TourSelectionView: View {
 
-    @State private var tourStop: TourStop = .allStops
+    @State private var tourStop: TourStopOption = .allStops
     @State private var tourLocation: TourLocation = .manilaVillage
     @Binding var path: NavigationPath
 
@@ -34,7 +34,7 @@ struct TourSelectionView: View {
             }
 
             Picker("All stops", selection: $tourStop) {
-                ForEach(TourStop.allCases) { value in
+                ForEach(TourStopOption.allCases) { value in
                     Text(value.rawValue)
                 }
             }

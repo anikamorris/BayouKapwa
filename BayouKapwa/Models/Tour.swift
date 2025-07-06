@@ -7,7 +7,7 @@
 
 // TODO: add both back in on v2
 
-enum TourStop: String, CaseIterable, Identifiable {
+enum TourStopOption: String, CaseIterable, Identifiable {
     case allStops = "All stops"
     case noStops = "Speed run"
     var id: Self { self }
@@ -30,13 +30,13 @@ enum TourOption: String {
 }
 
 struct Tour: Hashable, Equatable {
-    let tourStop: TourStop?
+    let tourStopOption: TourStopOption?
     let tourLocation: TourLocation?
     let tourOption: TourOption?
 
     // TODO: init uses stops and location to pull all stops and info
-    init(tourStop: TourStop?, tourLocation: TourLocation?) {
-        self.tourStop = tourStop
+    init(tourStop: TourStopOption?, tourLocation: TourLocation?) {
+        self.tourStopOption = tourStop
         self.tourLocation = tourLocation
         switch tourStop {
         case .allStops:

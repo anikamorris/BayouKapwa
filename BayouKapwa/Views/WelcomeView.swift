@@ -32,18 +32,19 @@ struct WelcomeView: View {
                 case .tourSelectionView: TourSelectionView(path: $path)
                 case .itineraryContainer: ItineraryContainer(path: $path, tour: navValue.tour!)
                 case .emptyView: EmptyView()
-                case .fhfsIntro: FHFStoreIntro(path: $path)
+                case .fhfsIntro, .chtfbIntro, .losIslenosIntro, .stMaloMarkerIntro, .shellBeachIntro:
+                    StopIntroView(
+                        path: $path,
+                        location: navValue.navLocation,
+                        stop: TourStop(from: navValue.navLocation)
+                    )
                 case .fhfsCeremony: FHFStoreCeremony(path: $path)
                 case .fhfsStop: FHFStoreStop(path: $path)
-                case .chtfbIntro: CHTFBooksIntro(path: $path)
                 case .chtfbCeremony: CHTFBooksCeremony(path: $path)
                 case .chtfbStop: CHTFBooksStop(path: $path)
-                case .losIslenosIntro: LosIslenosIntro(path: $path)
                 case .losIslenosCeremony: LosIslenosCeremony(path: $path)
                 case .losIslenosStop: LosIslenosStop(path: $path)
-                case .stMaloMarkerIntro: StMaloMarkerIntro(path: $path)
                 case .stMaloMarkerStop: StMaloMarkerStop(path: $path)
-                case .shellBeachIntro: ShellBeachIntro(path: $path)
                 case .shellBeachCeremony: ShellBeachCeremony(path: $path)
                 case .shellBeachStop: ShellBeachStop(path: $path)
                 case .stMaloCompletionView: StMaloCompletionView(path: $path)
@@ -52,8 +53,4 @@ struct WelcomeView: View {
         }
     }
 
-}
-
-#Preview {
-    WelcomeView()
 }
