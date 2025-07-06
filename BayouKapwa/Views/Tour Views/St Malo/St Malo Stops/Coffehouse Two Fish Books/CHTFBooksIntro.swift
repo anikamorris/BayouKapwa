@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CHTFBooksIntro: View {
+    
+    @Binding var path: NavigationPath
 
     var body: some View {
         VStack {
@@ -22,20 +24,14 @@ struct CHTFBooksIntro: View {
                 .padding(.bottom)
             Text("Placeholder descriptions")
             Spacer()
-            NavigationLink("Skip this stop") {
-                LosIslenosIntro()
+            Button("Skip this stop") {
+                path.append(NavigationValue(navLocation: .losIslenosIntro, tour: nil))
             }
-            .padding()
-            NavigationLink("Will make this stop") {
-                CHTFBooksCeremony()
+            Button("Will make this stop") {
+                path.append(NavigationValue(navLocation: .chtfbCeremony, tour: nil))
             }
-            .padding()
         }
         .padding()
     }
 
-}
-
-#Preview {
-    CHTFBooksIntro()
 }

@@ -12,6 +12,9 @@ struct ShellBeachStop: View {
         VStack {
             Text("Shell Beach")
             Text("Placeholder description")
+            NavigationLink("Finished tour") {
+//                StMaloCompletionView()
+            }
         }
     }
 }

@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct FHFStoreCeremony: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Ceremony")
-            NavigationLink("Finished") {
-                FHFStoreStop()
+            Button("Finished") {
+                path.append(NavigationValue(navLocation: .fhfsStop, tour: nil))
             }
         }
     }
-}
-
-#Preview {
-    FHFStoreCeremony()
 }

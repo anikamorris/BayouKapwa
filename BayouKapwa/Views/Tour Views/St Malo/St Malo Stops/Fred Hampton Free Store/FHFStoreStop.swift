@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct FHFStoreStop: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Fred Hampton Free Store")
             Text("'Phantom Visions' Mural")
-            NavigationLink("Next stop") {
-                CHTFBooksIntro()
+            Button("Next stop") {
+                path.append(NavigationValue(navLocation: .chtfbIntro, tour: nil))
             }
         }
     }
-}
-
-#Preview {
-    FHFStoreStop()
 }

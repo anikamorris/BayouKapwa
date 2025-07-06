@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct WelcomeView: View {
+
+    @State private var path = NavigationPath()
+
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack {
                 Spacer()
                 Text("Bayou Kapwa")
@@ -18,17 +21,29 @@ struct WelcomeView: View {
                 Text("Welcome to your self-guided tour")
                     .padding()
                 Spacer()
-                NavigationLink {
-                    IntroView()
-                } label: {
-                    Text("Let's go")
-                        .font(.title2)
+                Button("Let's go") {
+                    path.append(NavigationValue(navLocation: .introView, tour: nil))
                 }
-
             }
             .padding()
+            .navigationDestination(for: NavigationValue.self) { navValue in
+                switch navValue.navLocation {
+                case .introView: IntroView(path: $path)
+                case .tourSelectionView: TourSelectionView(path: $path)
+                case .itineraryContainer: ItineraryContainer(path: $path, tour: navValue.tour!)
+                case .emptyView: EmptyView()
+                case .fhfsIntro: FHFStoreIntro(path: $path)
+                case .fhfsCeremony: FHFStoreCeremony(path: $path)
+                case .fhfsStop: FHFStoreStop(path: $path)
+                case .chtfbIntro: CHTFBooksIntro(path: $path)
+                case .chtfbCeremony: CHTFBooksCeremony(path: $path)
+                case .chtfbStop: CHTFBooksStop(path: $path)
+                case .losIslenosIntro: LosIslenosIntro(path: $path)
+                }
+            }
         }
     }
+
 }
 
 #Preview {

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LosIslenosIntro: View {
+
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Los Isleños Museum Complex")
@@ -41,8 +44,4 @@ struct LosIslenosIntro: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    LosIslenosIntro()
 }

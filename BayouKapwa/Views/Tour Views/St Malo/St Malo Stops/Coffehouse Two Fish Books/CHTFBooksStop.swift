@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct CHTFBooksStop: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Coffeehouse and Two Fish Books")
             Text("Placeholder Description")
-            NavigationLink("Next stop") {
-                LosIslenosIntro()
+            Button("Next stop") {
+                path.append(NavigationValue(navLocation: .losIslenosIntro, tour: nil))
             }
         }
     }
-}
 
-#Preview {
-    CHTFBooksStop()
 }

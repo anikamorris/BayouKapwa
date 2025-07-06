@@ -11,6 +11,7 @@ struct TourSelectionView: View {
 
     @State private var tourStop: TourStop = .allStops
     @State private var tourLocation: TourLocation = .manilaVillage
+    @Binding var path: NavigationPath
 
     var body: some View {
         VStack {
@@ -49,17 +50,16 @@ struct TourSelectionView: View {
 
             Spacer()
 
-            NavigationLink {
-                ItineraryContainer(tour: Tour(tourStop: tourStop, tourLocation: tourLocation))
-            } label: {
-                Text("Let's Go!")
+            Button("Next") {
+                path.append(
+                    NavigationValue(
+                        navLocation: .itineraryContainer,
+                        tour: Tour(tourStop: tourStop, tourLocation: tourLocation)
+                    )
+                )
             }
         }
         .padding()
     }
 
-}
-
-#Preview {
-    TourSelectionView()
 }

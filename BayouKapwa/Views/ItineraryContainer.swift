@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItineraryContainer: View {
 
+    @Binding var path: NavigationPath
     let tour: Tour
 
     var body: some View {
@@ -29,19 +30,18 @@ struct ItineraryContainer: View {
                 Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with error view
             }
             Spacer()
-            // TODO: add next button
-            NavigationLink("Next") {
+            Button("Next") {
                 switch tour.tourOption {
                 case .allStopsManilaVillage:
-                    EmptyView()
+                    path.append(NavigationValue(navLocation: .emptyView, tour: nil))
                 case .allStopsSaintMalo:
-                    FHFStoreIntro()
+                    path.append(NavigationValue(navLocation: .fhfsIntro, tour: nil))
                 case .noStopsManilaVillage:
-                    EmptyView()
+                    path.append(NavigationValue(navLocation: .emptyView, tour: nil))
                 case .noStopsSaintMalo:
-                    EmptyView()
-                case .none:
-                    EmptyView() // TODO: replace with error view
+                    path.append(NavigationValue(navLocation: .losIslenosIntro, tour: nil))
+                default:
+                    path.append(NavigationValue(navLocation: .emptyView, tour: nil)) // TODO: replace with error view
                 }
             }
         }
@@ -58,6 +58,3 @@ struct ItineraryContainer: View {
     // the one that comes first when you go to both is a, the one that goes second is b. a stops will always enter after itinerary, b location will always exit to end of app/community share
 }
 
-#Preview {
-    ItineraryContainer(tour: Tour(tourStop: .noStops, tourLocation: .saintMalo))
-}

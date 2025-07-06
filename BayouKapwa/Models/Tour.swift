@@ -29,7 +29,7 @@ enum TourOption: String {
     // case noStopsBoth = "Both no stops"
 }
 
-struct Tour {
+struct Tour: Hashable, Equatable {
     let tourStop: TourStop?
     let tourLocation: TourLocation?
     let tourOption: TourOption?

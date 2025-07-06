@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FHFStoreIntro: View {
+    
+    @Binding var path: NavigationPath
+
     var body: some View {
         VStack {
             Text("Fred Hampton Free Store")
@@ -19,19 +22,13 @@ struct FHFStoreIntro: View {
                 .padding(.bottom)
             Text("Placeholder description")
             Spacer()
-            NavigationLink("Skip this stop") {
-                CHTFBooksIntro()
+            Button("Skip this stop") {
+                path.append(NavigationValue(navLocation: .chtfbIntro, tour: nil))
             }
-            .padding()
-            NavigationLink("Will make this stop") {
-                FHFStoreCeremony()
+            Button("Will make this stop") {
+                path.append(NavigationValue(navLocation: .fhfsCeremony, tour: nil))
             }
-            .padding()
         }
         .padding()
     }
-}
-
-#Preview {
-    FHFStoreIntro()
 }
