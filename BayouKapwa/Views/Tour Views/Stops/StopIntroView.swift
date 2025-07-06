@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct StopIntroView: View {
-    
+
+    @ObservedObject var locationManager = LocationManager()
     @Binding var path: NavigationPath
     let location: NavigationLocation
     let stop: TourStop
@@ -20,9 +21,18 @@ struct StopIntroView: View {
                 .multilineTextAlignment(.center)
                 .padding(.top)
             if let address = stop.address {
-                Text("\(address)")
-                    .padding(.top, 2)
-                    .padding(.bottom)
+                Button {
+                    locationManager.openMapWithAddress(address)
+                } label: {
+                    Text("Directions")
+                        .padding(.top, 2)
+                        .padding(.bottom)
+                }
+                .alert(isPresented: $locationManager.invalid) {
+                    Alert(title: Text("Error"), message: Text("Could not open address"), dismissButton: .default(Text("OK"), action:{
+                        locationManager.invalid = false
+                    }))
+                }
             }
             IntroHoursView(location: location)
             if let shortDescription = stop.shortDescription {
@@ -35,10 +45,14 @@ struct StopIntroView: View {
                 Button("Skip this stop") {
                     path.append(NavigationValue(navLocation: nextStop(), tour: nil))
                 }
+                .buttonStyle(.bordered)
+                .padding()
             }
             Button("I'm on my way") {
                 path.append(NavigationValue(navLocation: nextCeremony(), tour: nil))
             }
+            .buttonStyle(.bordered)
+            .padding()
         }
         .padding()
     }

@@ -33,7 +33,7 @@ struct TourStop {
         case .shellBeachIntro, .shellBeachCeremony, .shellBeachStop:
             name = "Shell Beach"
             shortDescription = nil
-            address = nil
+            address = "1301 Yscloskey Hwy, St Bernard, LA 70085"
         default:
             name = "error"
             shortDescription = "error"
