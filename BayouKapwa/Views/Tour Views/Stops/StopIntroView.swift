@@ -9,8 +9,6 @@ import SwiftUI
 
 struct StopIntroView: View {
 
-    @ObservedObject var locationManager = LocationManager()
-    @State private var showMapSelection: Bool = false
     @Binding var path: NavigationPath
     let location: NavigationLocation
     let stop: TourStop
@@ -22,36 +20,7 @@ struct StopIntroView: View {
                 .multilineTextAlignment(.center)
                 .padding(.top)
             if let address = stop.address {
-                Text("\(address)")
-                    .padding(.top, 2)
-                    .padding(.bottom)
-                Button {
-                    showMapSelection = true
-                } label: {
-                    Text("Directions")
-                        .padding(.top, 2)
-                        .padding(.bottom)
-                }
-                .confirmationDialog("Open Directions", isPresented: $showMapSelection, titleVisibility: .hidden) {
-                    Button("Open in Maps") {
-                        locationManager.openMapWithAddress(address, in: .appleMaps)
-                    }
-                    Button("Open in Google Maps") {
-                        locationManager.openMapWithAddress(address, in: .googleMaps)
-                    }
-                    Button("Copy") {
-                        let pasteboard = UIPasteboard.general
-                        pasteboard.string = address
-                    }
-                    Button("Cancel", role: .cancel) { }
-                }
-                .alert(isPresented: $locationManager.invalid) {
-                    Alert(
-                        title: Text("Error"),
-                        message: Text("Could not open address"),
-                        dismissButton: .default(Text("OK"), action: { locationManager.invalid = false })
-                    )
-                }
+                AddressView(address: address)
             }
             IntroHoursView(location: location)
             if let shortDescription = stop.introDescription {
