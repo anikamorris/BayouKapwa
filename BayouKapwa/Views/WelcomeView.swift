@@ -41,7 +41,7 @@ struct WelcomeView: View {
                 case .fhfsCeremony: FHFStoreCeremony(path: $path)
                 case .fhfsStop: FHFStoreStop(path: $path)
                 case .chtfbCeremony: CHTFBooksCeremony(path: $path)
-                case .chtfbStop: CHTFBooksStop(path: $path)
+                case .chtfbStop: CHTFBooksStop(path: $path, stop: TourStop(from: navValue.navLocation))
                 case .losIslenosCeremony: LosIslenosCeremony(path: $path)
                 case .losIslenosStop: LosIslenosStop(path: $path)
                 case .stMaloMarkerStop: StMaloMarkerStop(path: $path)
