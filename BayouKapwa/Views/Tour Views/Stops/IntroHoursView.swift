@@ -13,7 +13,7 @@ struct IntroHoursView: View {
 
     var body: some View {
         if location == .chtfbIntro {
-            CHTWBooksHoursView()
+            CHTFBooksHoursView()
                 .padding(.bottom)
         }
         if location == .losIslenosIntro {

@@ -21,6 +21,9 @@ struct StopIntroView: View {
                 .multilineTextAlignment(.center)
                 .padding(.top)
             if let address = stop.address {
+                Text("\(address)")
+                    .padding(.top, 2)
+                    .padding(.bottom)
                 Button {
                     locationManager.openMapWithAddress(address)
                 } label: {
@@ -35,7 +38,7 @@ struct StopIntroView: View {
                 }
             }
             IntroHoursView(location: location)
-            if let shortDescription = stop.shortDescription {
+            if let shortDescription = stop.introDescription {
                 Text("\(shortDescription)")
             } else {
                 Text("Placeholder description")
