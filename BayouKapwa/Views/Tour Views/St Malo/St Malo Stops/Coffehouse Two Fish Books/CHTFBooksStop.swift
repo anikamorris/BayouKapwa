@@ -36,9 +36,3 @@ struct CHTFBooksStop: View {
     }
 
 }
-
-
-#Preview {
-    @Previewable @State var path = NavigationPath()
-    CHTFBooksStop(path: $path, stop: TourStop(from: .chtfbStop))
-}
