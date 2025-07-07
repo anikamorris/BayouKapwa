@@ -37,7 +37,7 @@ struct ItineraryContainer: View {
                 case .allStopsSaintMalo:
                     path.append(NavigationValue(navLocation: .fhfsIntro, tour: nil))
                 case .noStopsManilaVillage:
-                    path.append(NavigationValue(navLocation: .emptyView, tour: nil))
+                    path.append(NavigationValue(navLocation: .manilaVillageMarkerIntro, tour: nil))
                 case .noStopsSaintMalo:
                     path.append(NavigationValue(navLocation: .losIslenosIntro, tour: nil))
                 default:

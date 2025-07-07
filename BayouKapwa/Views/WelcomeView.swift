@@ -32,7 +32,7 @@ struct WelcomeView: View {
                 case .tourSelectionView: TourSelectionView(path: $path)
                 case .itineraryContainer: ItineraryContainer(path: $path, tour: navValue.tour!)
                 case .emptyView: EmptyView()
-                case .fhfsIntro, .chtfbIntro, .losIslenosIntro, .stMaloMarkerIntro, .shellBeachIntro:
+                case .fhfsIntro, .chtfbIntro, .losIslenosIntro, .stMaloMarkerIntro, .shellBeachIntro, .manilaVillageMarkerIntro, .multipurposeCenterIntro, .townHallIntro, .natureTraceIntro:
                     StopIntroView(
                         path: $path,
                         location: navValue.navLocation,
@@ -48,6 +48,15 @@ struct WelcomeView: View {
                 case .shellBeachCeremony: ShellBeachCeremony(path: $path)
                 case .shellBeachStop: ShellBeachStop(path: $path)
                 case .stMaloCompletionView: StMaloCompletionView(path: $path)
+                case .manilaVillageMarkerCeremony: ManilaVillageMarkerCeremony(path: $path)
+                case .manilaVillageMarkerStop: ManilaVillageMarkerStop(path: $path)
+                case .multipurposeCenterCeremony: MultipurposeCenterCeremony(path: $path)
+                case .multipurposeCenterStop: MultipurposeCenterStop(path: $path)
+                case .townHallCeremony: TownHallCeremony(path: $path)
+                case .townHallStop: TownHallStop(path: $path)
+                case .natureTraceCeremony: NatureTraceCeremony(path: $path)
+                case .natureTraceStop: NatureTraceStop(path: $path)
+                case .manilaVillageCompletionView: ManilaVillageCompletionView(path: $path)
                 }
             }
         }

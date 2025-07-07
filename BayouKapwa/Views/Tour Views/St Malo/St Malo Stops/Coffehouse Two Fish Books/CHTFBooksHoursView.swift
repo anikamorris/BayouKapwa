@@ -21,7 +21,7 @@ struct CHTFBooksHoursView: View {
             }
             .padding(.top, 22)
             VStack {
-                Text("Coffeehouse")
+                Text("The Coffeehouse")
                 Text("Closed")
                 Text("7am - 6pm")
                 Text("6am - 6pm")

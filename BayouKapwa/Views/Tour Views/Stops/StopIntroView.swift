@@ -52,7 +52,7 @@ struct StopIntroView: View {
                 .padding()
             }
             Button("I'm on my way") {
-                path.append(NavigationValue(navLocation: nextCeremony(), tour: nil))
+                path.append(NavigationValue(navLocation: nextLocation(), tour: nil))
             }
             .buttonStyle(.bordered)
             .padding()
@@ -60,13 +60,17 @@ struct StopIntroView: View {
         .padding()
     }
 
-    private func nextCeremony() -> NavigationLocation {
+    private func nextLocation() -> NavigationLocation {
         switch location {
         case .fhfsIntro: return .fhfsCeremony
         case .chtfbIntro: return .chtfbCeremony
         case .losIslenosIntro: return .losIslenosCeremony
         case .stMaloMarkerIntro: return .stMaloMarkerStop
         case .shellBeachIntro: return .shellBeachCeremony
+        case .manilaVillageMarkerIntro: return .manilaVillageMarkerCeremony
+        case .multipurposeCenterIntro: return .multipurposeCenterCeremony
+        case .townHallIntro: return .townHallCeremony
+        case .natureTraceIntro: return .natureTraceCeremony
         default: return .emptyView
         }
     }

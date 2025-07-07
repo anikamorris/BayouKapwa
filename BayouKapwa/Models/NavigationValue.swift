@@ -35,6 +35,25 @@ enum NavigationLocation: Hashable {
     case shellBeachStop
 
     case stMaloCompletionView
+
+    // MARK: Manila Village Tour
+    case manilaVillageMarkerIntro
+    case manilaVillageMarkerCeremony
+    case manilaVillageMarkerStop
+
+    case multipurposeCenterIntro
+    case multipurposeCenterCeremony
+    case multipurposeCenterStop
+
+    case townHallIntro
+    case townHallCeremony
+    case townHallStop
+
+    case natureTraceIntro
+    case natureTraceCeremony
+    case natureTraceStop
+
+    case manilaVillageCompletionView
 }
 
 struct NavigationValue: Hashable {

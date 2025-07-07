@@ -13,7 +13,7 @@ struct CHTFBooksStop: View {
 
     var body: some View {
         VStack {
-            Text("Coffeehouse and Two Fish Books")
+            Text("The Coffeehouse and Two Fish Books")
             Text("Placeholder Description")
             Button("Next stop") {
                 path.append(NavigationValue(navLocation: .losIslenosIntro, tour: nil))

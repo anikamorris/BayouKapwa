@@ -40,6 +40,26 @@ struct TourStop {
             introDescription = nil
             stopDescription = nil
             address = "1301 Yscloskey Hwy, St Bernard, LA 70085"
+        case .manilaVillageMarkerIntro, .manilaVillageMarkerCeremony, .manilaVillageMarkerStop:
+            name = "Manila Village Historical Marker"
+            introDescription = nil
+            stopDescription = nil
+            address = nil
+        case .multipurposeCenterIntro, .multipurposeCenterCeremony, .multipurposeCenterStop:
+            name = "Jean Lafitte Multipurpose Center"
+            introDescription = nil
+            stopDescription = nil
+            address = nil
+        case .townHallIntro, .townHallCeremony, .townHallStop:
+            name = "Jean Lafitte Town Hall"
+            introDescription = nil
+            stopDescription = nil
+            address = nil
+        case .natureTraceIntro, .natureTraceCeremony, .natureTraceStop:
+            name = "Nature Wetland Trace"
+            introDescription = nil
+            stopDescription = nil
+            address = nil
         default:
             name = "error"
             introDescription = "error"
