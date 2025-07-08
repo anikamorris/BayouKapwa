@@ -15,9 +15,10 @@ struct WelcomeView: View {
         NavigationStack(path: $path) {
             VStack {
                 Spacer()
-                Text("Bayou Kapwa")
-                    .font(.largeTitle)
-                    .padding()
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300)
                 Text("Welcome to your self-guided tour")
                     .padding()
                 Spacer()

@@ -13,7 +13,7 @@ struct StMaloCompletionView: View {
 
     var body: some View {
         VStack {
-            Text("You have finished the Saint Malo tour")
+            Text("You have finished the St. Malo tour")
             Text("Thank you for participating")
             Button("Return to Home") {
                 path = NavigationPath()

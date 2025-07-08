@@ -27,7 +27,7 @@ struct TourStop {
             introDescription = nil
             address = "1357 Bayou Rd, St Bernard, LA 70085"
         case .stMaloMarkerIntro, .stMaloMarkerStop:
-            name = "Saint Malo Historical Marker"
+            name = "St. Malo Historical Marker"
             introDescription = nil
             address = nil
         case .shellBeachIntro, .shellBeachCeremony, .shellBeachStop:

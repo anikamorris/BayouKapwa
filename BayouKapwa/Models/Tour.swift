@@ -15,17 +15,17 @@ enum TourStopOption: String, CaseIterable, Identifiable {
 
 enum TourLocation: String, CaseIterable, Identifiable {
     case manilaVillage = "Manila Village"
-    case saintMalo = "Saint Malo"
+    case stMalo = "St. Malo"
     // case both = "Both"
     var id: Self { self }
 }
 
 enum TourOption: String {
     case allStopsManilaVillage = "Manila Village all stops"
-    case allStopsSaintMalo  = "Saint Malo all stops"
+    case allStopsStMalo  = "St. Malo all stops"
     // case allStopsBoth  = "Both all stops"
     case noStopsManilaVillage  = "Manila Village no stops"
-    case noStopsSaintMalo = "Saint Malo no stops"
+    case noStopsStMalo = "St. Malo no stops"
     // case noStopsBoth = "Both no stops"
 }
 
@@ -42,14 +42,14 @@ struct Tour: Hashable, Equatable {
         case .allStops:
             switch tourLocation {
             case .manilaVillage: self.tourOption = .allStopsManilaVillage
-            case .saintMalo: self.tourOption = .allStopsSaintMalo
+            case .stMalo: self.tourOption = .allStopsStMalo
             // case .both: self.tourOption = .allStopsBoth
             case .none: self.tourOption = nil
             }
         case .noStops:
             switch tourLocation {
             case .manilaVillage: self.tourOption = .noStopsManilaVillage
-            case .saintMalo: self.tourOption = .noStopsSaintMalo
+            case .stMalo: self.tourOption = .noStopsStMalo
             // case .both: self.tourOption = .noStopsBoth
             case .none: self.tourOption = nil
             }

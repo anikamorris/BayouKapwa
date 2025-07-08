@@ -26,7 +26,7 @@ struct StopIntroView: View {
             if let shortDescription = stop.introDescription {
                 Text("\(shortDescription)")
             } else {
-                Text("Placeholder description")
+                Text("Make this non optional once Carolyn sends all copy")
             }
             Spacer()
             if location == .fhfsIntro || location == .chtfbIntro {

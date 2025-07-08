@@ -20,11 +20,11 @@ struct ItineraryContainer: View {
             switch tour.tourOption {
             case .allStopsManilaVillage:
                 ManilaVillageWithStopsItineraryView()
-            case .allStopsSaintMalo:
+            case .allStopsStMalo:
                 StMaloWithStopsItineraryView()
             case .noStopsManilaVillage:
                 ManilaVillageNoStopsItineraryView()
-            case .noStopsSaintMalo:
+            case .noStopsStMalo:
                 StMaloNoStopsItineraryView()
             case .none:
                 Text(tour.tourOption?.rawValue ?? "tour option nil") // TODO: replace with error view
@@ -34,11 +34,11 @@ struct ItineraryContainer: View {
                 switch tour.tourOption {
                 case .allStopsManilaVillage:
                     path.append(NavigationValue(navLocation: .emptyView, tour: nil))
-                case .allStopsSaintMalo:
+                case .allStopsStMalo:
                     path.append(NavigationValue(navLocation: .fhfsIntro, tour: nil))
                 case .noStopsManilaVillage:
                     path.append(NavigationValue(navLocation: .manilaVillageMarkerIntro, tour: nil))
-                case .noStopsSaintMalo:
+                case .noStopsStMalo:
                     path.append(NavigationValue(navLocation: .losIslenosIntro, tour: nil))
                 default:
                     path.append(NavigationValue(navLocation: .emptyView, tour: nil)) // TODO: replace with error view

@@ -13,7 +13,7 @@ struct StMaloMarkerIntro: View {
 
     var body: some View {
         VStack {
-            Text("Saint Malo Historical Marker")
+            Text("St. Malo Historical Marker")
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .padding()

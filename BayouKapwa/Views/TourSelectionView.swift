@@ -29,8 +29,8 @@ struct TourSelectionView: View {
             switch tourLocation {
             case .manilaVillage:
                 Text("Manila Village Info")
-            case .saintMalo:
-                Text("Saint Malo Info")
+            case .stMalo:
+                Text("St. Malo Info")
             }
 
             Picker("All stops", selection: $tourStop) {

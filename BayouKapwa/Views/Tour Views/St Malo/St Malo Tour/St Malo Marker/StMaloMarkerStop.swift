@@ -13,7 +13,7 @@ struct StMaloMarkerStop: View {
 
     var body: some View {
         VStack {
-            Text("Saint Malo Historical Marker")
+            Text("St. Malo Historical Marker")
             Text("Placeholder description")
             Button("Next stop") {
                 path.append(NavigationValue(navLocation: .shellBeachIntro, tour: nil))
