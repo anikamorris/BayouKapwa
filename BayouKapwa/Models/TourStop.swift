@@ -37,15 +37,15 @@ struct TourStop {
         case .manilaVillageMarkerIntro, .manilaVillageMarkerCeremony, .manilaVillageMarkerStop:
             name = "Manila Village Historical Marker"
             introDescription = nil
-            address = nil
+            address = "2654 Jean Lafitte Blvd #2620, Jean Lafitte, LA 70067"
         case .multipurposeCenterIntro, .multipurposeCenterCeremony, .multipurposeCenterStop:
             name = "Jean Lafitte Multipurpose Center"
             introDescription = nil
-            address = nil
+            address = "4917 City Park Drive, Lafitte, LA 70067"
         case .townHallIntro, .townHallCeremony, .townHallStop:
             name = "Jean Lafitte Town Hall"
             introDescription = nil
-            address = nil
+            address = "2654 Jean Lafitte Blvd, Lafitte, LA 70067"
         case .natureTraceIntro, .natureTraceCeremony, .natureTraceStop:
             name = "Nature Wetland Trace"
             introDescription = nil
