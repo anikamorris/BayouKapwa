@@ -7,16 +7,11 @@
 
 import SwiftUI
 
-@MainActor
-final class SignInViewModel: ObservableObject {
-    @Published var email: String = ""
-    @Published var password: String = ""
-}
-
 struct SignInView: View {
 
     @StateObject private var viewModel = SignInViewModel()
     @Binding var showAuthView: Bool
+    @State private var showError: Bool = false
 
     var body: some View {
         VStack {
@@ -29,11 +24,25 @@ struct SignInView: View {
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
             Button {
-                // TODO: implement sign in
+                Task {
+                    do {
+                        try await viewModel.signIn()
+                        showAuthView = false
+                    } catch {
+                        showError = true
+                    }
+                }
             } label: {
                 Text("Sign In")
             }
-
+        }
+        .padding()
+        .alert(isPresented: $showError) {
+            Alert(
+                title: Text("Something went wrong"),
+                message: Text("Please try again"),
+                dismissButton: .cancel(Text("OK"))
+            )
         }
     }
 

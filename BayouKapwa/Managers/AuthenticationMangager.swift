@@ -45,6 +45,11 @@ final class AuthenticationMangager {
         return LocalAuthDataResult(user: authDataResult.user)
     }
 
+    func signInUser(email: String, password: String) async throws -> LocalAuthDataResult {
+        let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
+        return LocalAuthDataResult(user: authDataResult.user)
+    }
+
     func signOut() throws {
         try Auth.auth().signOut()
     }

@@ -11,6 +11,7 @@ struct SignUpView: View {
 
     @StateObject private var viewModel = SignUpViewModel()
     @Binding var showAuthView: Bool
+    @State private var showError: Bool = false
 
     var body: some View {
         VStack {
@@ -27,8 +28,13 @@ struct SignUpView: View {
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
             Button {
-                viewModel.signUp() {
-                    showAuthView = false
+                Task {
+                    do {
+                        try await viewModel.signUp()
+                        showAuthView = false
+                    } catch {
+                        showError = true
+                    }
                 }
             } label: {
                 Text("Create Account")
@@ -46,7 +52,14 @@ struct SignUpView: View {
             Alert(
                 title: Text("Error"),
                 message: Text(errorMessage()),
-                dismissButton: .cancel()
+                dismissButton: .cancel(Text("OK"))
+            )
+        }
+        .alert(isPresented: $showError) {
+            Alert(
+                title: Text("Something went wrong"),
+                message: Text("Please try again"),
+                dismissButton: .cancel(Text("OK"))
             )
         }
     }
@@ -56,6 +69,7 @@ struct SignUpView: View {
         case .oneOrMoreFieldsEmpty: return "Please enter all fields"
         case .passwordsDoNotMatch: return "Passwords do not match"
         case .invalidEmail: return "Invalid email"
+        case .userAlreadyExists: return "This email is already in use"
         default: return "Please try again"
         }
     }

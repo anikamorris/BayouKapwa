@@ -24,7 +24,7 @@ final class SignUpViewModel: ObservableObject {
     @Published var hasErrors: Bool = false
     @Published var error: SignUpError? = nil
 
-    func signUp(completion: @escaping () -> Void) {
+    func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty, !confirmedPassword.isEmpty else {
             hasErrors = true
             error = .oneOrMoreFieldsEmpty
@@ -36,19 +36,11 @@ final class SignUpViewModel: ObservableObject {
             return
         }
         // TODO: email validation
-        Task {
-            do {
-                let returnedUserData = try await AuthenticationMangager.shared.createNewUser(
-                    email: email,
-                    password: password
-                )
-                print(returnedUserData)
-                completion()
-            } catch(let error) {
-                print(error)
-                hasErrors = true
-            }
-        }
+        let returnedUserData = try await AuthenticationMangager.shared.createNewUser(
+            email: email,
+            password: password
+        )
+        print(returnedUserData)
     }
 
 }
