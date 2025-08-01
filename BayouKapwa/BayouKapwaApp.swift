@@ -17,7 +17,7 @@ struct BayouKapwaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            RootView()
         }
     }
 }

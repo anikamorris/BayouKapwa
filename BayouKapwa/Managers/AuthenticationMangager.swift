@@ -32,7 +32,7 @@ final class AuthenticationMangager {
 
     private init() { }
 
-    private func getAuthenticatedUser() throws -> LocalAuthDataResult {
+    func getAuthenticatedUser() throws -> LocalAuthDataResult {
         guard let user = Auth.auth().currentUser else {
             throw AuthError.noCurrentUser
         }
@@ -40,12 +40,12 @@ final class AuthenticationMangager {
         return LocalAuthDataResult(user: user)
     }
 
-    private func createNewUser(email: String, password: String) async throws -> LocalAuthDataResult {
+    func createNewUser(email: String, password: String) async throws -> LocalAuthDataResult {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         return LocalAuthDataResult(user: authDataResult.user)
     }
 
-    private func signOut() throws {
+    func signOut() throws {
         try Auth.auth().signOut()
     }
 
