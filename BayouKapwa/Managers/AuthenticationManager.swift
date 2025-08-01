@@ -26,9 +26,9 @@ enum AuthError: Error {
     case noCurrentUser
 }
 
-final class AuthenticationMangager {
+final class AuthenticationManager {
 
-    static let shared = AuthenticationMangager()
+    static let shared = AuthenticationManager()
 
     private init() { }
 
@@ -48,6 +48,10 @@ final class AuthenticationMangager {
     func signInUser(email: String, password: String) async throws -> LocalAuthDataResult {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         return LocalAuthDataResult(user: authDataResult.user)
+    }
+
+    func sendPasswordReset(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
     }
 
     func signOut() throws {

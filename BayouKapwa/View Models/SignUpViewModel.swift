@@ -36,7 +36,7 @@ final class SignUpViewModel: ObservableObject {
             return
         }
         // TODO: email validation
-        let returnedUserData = try await AuthenticationMangager.shared.createNewUser(
+        let returnedUserData = try await AuthenticationManager.shared.createNewUser(
             email: email,
             password: password
         )

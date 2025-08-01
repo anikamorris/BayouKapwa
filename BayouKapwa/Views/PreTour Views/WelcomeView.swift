@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
 
-    @State private var path = NavigationPath()
+    @Binding var path: NavigationPath
     @Binding var showAuthView: Bool
 
     var body: some View {
@@ -28,7 +28,7 @@ struct WelcomeView: View {
             Button("Sign out") {
                 Task {
                     do {
-                        try AuthenticationMangager.shared.signOut()
+                        try AuthenticationManager.shared.signOut()
                         showAuthView = true
                     } catch {
                         print("sign out failed")

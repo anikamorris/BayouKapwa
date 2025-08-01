@@ -34,7 +34,28 @@ struct SignInView: View {
                 }
             } label: {
                 Text("Sign In")
+                    .font(.headline)
+                    .foregroundStyle(Color.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
             }
+            .padding(.top)
+            Button {
+                Task {
+                    do {
+                        try await viewModel.sendPasswordReset()
+                        print("send reset pw email")
+                    } catch {
+                        showError = true
+                    }
+                }
+            } label: {
+                Text("Forgot Password")
+                    .padding()
+            }
+            Spacer()
         }
         .padding()
         .alert(isPresented: $showError) {

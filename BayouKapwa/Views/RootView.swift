@@ -9,19 +9,19 @@ import SwiftUI
 
 struct RootView: View {
 
-    @State private var showAuthView = false
     @State private var path = NavigationPath()
+    @State private var showAuthView = false
 
     var body: some View {
         ZStack {
             NavigationStack(path: $path) {
-                WelcomeView(showAuthView: $showAuthView)
+                WelcomeView(path: $path, showAuthView: $showAuthView)
                     .navigationDestination(for: NavigationValue.self) { navValue in
                         navDestination(from: navValue)
                     }
             }
             .onAppear {
-                let user = try? AuthenticationMangager.shared.getAuthenticatedUser()
+                let user = try? AuthenticationManager.shared.getAuthenticatedUser()
                 self.showAuthView = user == nil
             }
             .fullScreenCover(isPresented: $showAuthView) {
