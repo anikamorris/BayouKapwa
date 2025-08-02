@@ -7,31 +7,21 @@
 
 import Foundation
 
+enum ProfileError: Error {
+    case couldNotFetchEmail
+}
+
 @MainActor
 final class ProfileViewModel: ObservableObject {
 
     @Published var name: String = ""
     @Published var email: String = ""
 
-    init() {
-        Task {
-            do {
-                let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
-                guard let name = authUser.name, let email = authUser.email else {
-                    self.name = ""
-                    self.email = ""
-                    return
-                }
-                self.name = name
-                self.email = email
-            } catch {
-                self.name = ""
-                self.email = ""
-            }
-        }
-    }
-
     func sendPasswordReset() async throws {
+        let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
+        guard let email = authUser.email else {
+            throw ProfileError.couldNotFetchEmail
+        }
         try await AuthenticationManager.shared.sendPasswordReset(email: email)
     }
 

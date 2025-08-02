@@ -12,6 +12,7 @@ struct SignInView: View {
     @StateObject private var viewModel = SignInViewModel()
     @Binding var showAuthView: Bool
     @State private var showError: Bool = false
+    @State private var showPasswordResetAlert: Bool = false
 
     var body: some View {
         VStack {
@@ -47,7 +48,7 @@ struct SignInView: View {
                 Task {
                     do {
                         try await viewModel.sendPasswordReset()
-                        print("send reset pw email")
+                        showPasswordResetAlert = true
                     } catch {
                         showError = true
                     }
@@ -63,6 +64,13 @@ struct SignInView: View {
             Alert(
                 title: Text("Something went wrong"),
                 message: Text("Please try again"),
+                dismissButton: .cancel(Text("OK"))
+            )
+        }
+        .alert(isPresented: $showPasswordResetAlert) {
+            Alert(
+                title: Text("Password reset initiated"),
+                message: Text("Check your email for a link to reset your password."),
                 dismissButton: .cancel(Text("OK"))
             )
         }

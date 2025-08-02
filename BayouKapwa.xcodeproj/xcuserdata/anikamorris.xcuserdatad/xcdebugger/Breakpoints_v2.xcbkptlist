@@ -36,5 +36,65 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F272AEBD-4667-4DE3-B758-26752F3A0D8F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BayouKapwa/Managers/AuthenticationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "sendPasswordReset(email:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F272AEBD-4667-4DE3-B758-26752F3A0D8F - 6168bf2764e53839"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for BayouKapwa.AuthenticationManager.sendPasswordReset(email: Swift.String) async throws -&gt; ()"
+                  moduleName = "BayouKapwa.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anikamorris/Documents/BayouKapwa/BayouKapwa/Managers/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54">
+               </Location>
+               <Location
+                  uuid = "F272AEBD-4667-4DE3-B758-26752F3A0D8F - 77fe6956f740e90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for BayouKapwa.AuthenticationManager.sendPasswordReset(email: Swift.String) async throws -&gt; ()"
+                  moduleName = "BayouKapwa.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anikamorris/Documents/BayouKapwa/BayouKapwa/Managers/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54">
+               </Location>
+               <Location
+                  uuid = "F272AEBD-4667-4DE3-B758-26752F3A0D8F - 3fd5abf029a48403"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for BayouKapwa.AuthenticationManager.sendPasswordReset(email: Swift.String) async throws -&gt; ()"
+                  moduleName = "BayouKapwa.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anikamorris/Documents/BayouKapwa/BayouKapwa/Managers/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
