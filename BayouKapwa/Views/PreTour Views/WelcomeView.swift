@@ -10,7 +10,6 @@ import SwiftUI
 struct WelcomeView: View {
 
     @Binding var path: NavigationPath
-    @Binding var showAuthView: Bool
 
     var body: some View {
         VStack {
@@ -22,19 +21,18 @@ struct WelcomeView: View {
             Text("Welcome to your self-guided tour")
                 .padding()
             Spacer()
-            Button("Let's go") {
+            Button {
                 path.append(NavigationValue(navLocation: .introView, tour: nil))
+            } label: {
+                Text("Let's Go")
+                    .font(.headline)
+                    .foregroundStyle(Color.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
             }
-            Button("Sign out") {
-                Task {
-                    do {
-                        try AuthenticationManager.shared.signOut()
-                        showAuthView = true
-                    } catch {
-                        print("sign out failed")
-                    }
-                }
-            }
+            Spacer()
         }
         .padding()
     }

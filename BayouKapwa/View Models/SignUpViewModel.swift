@@ -21,21 +21,17 @@ final class SignUpViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmedPassword: String = ""
-    @Published var hasErrors: Bool = false
-    @Published var error: SignUpError? = nil
 
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty, !confirmedPassword.isEmpty else {
-            hasErrors = true
-            error = .oneOrMoreFieldsEmpty
-            return
+            throw SignUpError.oneOrMoreFieldsEmpty
+        }
+        guard email.isValidEmail() else {
+            throw SignUpError.invalidEmail
         }
         guard password == confirmedPassword else {
-            hasErrors = true
-            error = .passwordsDoNotMatch
-            return
+            throw SignUpError.passwordsDoNotMatch
         }
-        // TODO: email validation
         let returnedUserData = try await AuthenticationManager.shared.createNewUser(
             email: email,
             password: password

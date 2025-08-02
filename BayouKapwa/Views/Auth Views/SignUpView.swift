@@ -12,10 +12,12 @@ struct SignUpView: View {
     @StateObject private var viewModel = SignUpViewModel()
     @Binding var showAuthView: Bool
     @State private var showError: Bool = false
+    @State private var error: SignUpError = .other
 
     var body: some View {
         VStack {
             TextField("Email...", text: $viewModel.email)
+                .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
@@ -32,8 +34,13 @@ struct SignUpView: View {
                     do {
                         try await viewModel.signUp()
                         showAuthView = false
-                    } catch {
+                    } catch(let error) {
+                        guard let error = error as? SignUpError else {
+                            return
+                        }
+                        self.error = error
                         showError = true
+
                     }
                 }
             } label: {
@@ -49,24 +56,17 @@ struct SignUpView: View {
             Spacer()
         }
         .padding()
-        .alert(isPresented: $viewModel.hasErrors) {
-            Alert(
-                title: Text("Error"),
-                message: Text(errorMessage()),
-                dismissButton: .cancel(Text("OK"))
-            )
-        }
         .alert(isPresented: $showError) {
             Alert(
                 title: Text("Something went wrong"),
-                message: Text("Please try again"),
+                message: Text(errorMessage()),
                 dismissButton: .cancel(Text("OK"))
             )
         }
     }
 
     private func errorMessage() -> String {
-        switch viewModel.error {
+        switch error {
         case .oneOrMoreFieldsEmpty: return "Please enter all fields"
         case .passwordsDoNotMatch: return "Passwords do not match"
         case .invalidEmail: return "Invalid email"
