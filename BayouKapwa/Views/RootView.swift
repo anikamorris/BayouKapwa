@@ -14,10 +14,19 @@ struct RootView: View {
 
     var body: some View {
         ZStack {
-            NavigationStack(path: $path) {
-                WelcomeView(path: $path, showAuthView: $showAuthView)
-                    .navigationDestination(for: NavigationValue.self) { navValue in
-                        navDestination(from: navValue)
+            TabView {
+                NavigationStack(path: $path) {
+                    WelcomeView(path: $path)
+                        .navigationDestination(for: NavigationValue.self) { navValue in
+                            navDestination(from: navValue)
+                        }
+                }
+                .tabItem {
+                    Label("Tours", systemImage: "map")
+                }
+                ProfileView(showAuthView: $showAuthView)
+                    .tabItem {
+                        Label("Profile", systemImage: "person")
                     }
             }
             .onAppear {

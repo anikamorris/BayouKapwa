@@ -16,6 +16,7 @@ struct SignInView: View {
     var body: some View {
         VStack {
             TextField("Email...", text: $viewModel.email)
+                .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
