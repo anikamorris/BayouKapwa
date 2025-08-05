@@ -16,6 +16,11 @@ struct SignUpView: View {
 
     var body: some View {
         VStack {
+            TextField("Name...", text: $viewModel.name)
+                .textInputAutocapitalization(.never)
+                .padding()
+                .background(Color.gray.opacity(0.3))
+                .cornerRadius(10)
             TextField("Email...", text: $viewModel.email)
                 .textInputAutocapitalization(.never)
                 .padding()

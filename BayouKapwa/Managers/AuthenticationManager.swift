@@ -16,8 +16,8 @@ struct LocalAuthDataResult {
 
     init(user: User) {
         self.id = user.uid
-        self.name = user.displayName
-        self.email = user.email
+        self.name = user.displayName ?? ""
+        self.email = user.email ?? ""
         self.photoUrl = user.photoURL?.absoluteString
     }
 }

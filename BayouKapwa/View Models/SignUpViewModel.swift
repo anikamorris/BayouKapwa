@@ -18,12 +18,13 @@ enum SignUpError: Error {
 @MainActor
 final class SignUpViewModel: ObservableObject {
 
+    @Published var name: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmedPassword: String = ""
 
     func signUp() async throws {
-        guard !email.isEmpty, !password.isEmpty, !confirmedPassword.isEmpty else {
+        guard !name.isEmpty, !email.isEmpty, !password.isEmpty, !confirmedPassword.isEmpty else {
             throw SignUpError.oneOrMoreFieldsEmpty
         }
         guard email.isValidEmail() else {
@@ -32,11 +33,11 @@ final class SignUpViewModel: ObservableObject {
         guard password == confirmedPassword else {
             throw SignUpError.passwordsDoNotMatch
         }
-        let returnedUserData = try await AuthenticationManager.shared.createNewUser(
+        let localAuthDataResult = try await AuthenticationManager.shared.createNewUser(
             email: email,
             password: password
         )
-        print(returnedUserData)
+        try await UserManager.shared.createNewUser(auth: localAuthDataResult, name: name)
     }
 
 }

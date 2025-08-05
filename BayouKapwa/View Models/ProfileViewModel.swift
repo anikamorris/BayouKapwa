@@ -14,8 +14,12 @@ enum ProfileError: Error {
 @MainActor
 final class ProfileViewModel: ObservableObject {
 
-    @Published var name: String = ""
-    @Published var email: String = ""
+    @Published private(set) var user: DBUser? = nil
+
+    func fetchUserData() async throws {
+        let localAuthDataResult = try AuthenticationManager.shared.getAuthenticatedUser()
+        self.user = try await UserManager.shared.getUser(from: localAuthDataResult.id)
+    }
 
     func sendPasswordReset() async throws {
         let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
