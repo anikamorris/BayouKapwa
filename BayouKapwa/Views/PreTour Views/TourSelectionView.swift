@@ -53,7 +53,7 @@ struct TourSelectionView: View {
             Button("Next") {
                 path.append(
                     NavigationValue(
-                        navLocation: .itineraryContainer,
+                        navLocation: .numPeopleView,
                         tour: Tour(tourStop: tourStop, tourLocation: tourLocation)
                     )
                 )

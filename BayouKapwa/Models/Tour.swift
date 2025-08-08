@@ -29,10 +29,19 @@ enum TourOption: String {
     // case noStopsBoth = "Both no stops"
 }
 
+enum Role: String, CaseIterable, Identifiable {
+    case navigator = "Navigator"
+    case ceremonialist = "Ceremonialist"
+    case documentarian = "Documentarian"
+    var id: Self { self }
+}
+
 struct Tour: Hashable, Equatable {
     let tourStopOption: TourStopOption?
     let tourLocation: TourLocation?
     let tourOption: TourOption?
+    var numPeople: Int?
+    var role: Role?
 
     // TODO: init uses stops and location to pull all stops and info
     init(tourStop: TourStopOption?, tourLocation: TourLocation?) {
@@ -56,4 +65,13 @@ struct Tour: Hashable, Equatable {
         case .none: self.tourOption = nil
         }
     }
+
+    mutating func setNumPeople(to num: Int) {
+        self.numPeople = num
+    }
+
+    mutating func setRole(to role: Role) {
+        self.role = role
+    }
+
 }
