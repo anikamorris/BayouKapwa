@@ -10,6 +10,8 @@ import Foundation
 enum NavigationLocation: Hashable {
     case introView
     case tourSelectionView
+    case numPeopleView
+    case rolesView
     case itineraryContainer
     case emptyView
 

@@ -41,10 +41,13 @@ struct RootView: View {
         }
     }
 
+    // Listen, I know this is a mess, but we need to be able to pop back to the welcome view from the deepest tour view, which means we need to pass the navigation path to each view. If you have a better idea, I'm more than happy to hear it and would gladly refactor. Thank you and I'm sorry.
     @ViewBuilder private func navDestination(from navValue: NavigationValue) -> some View {
         switch navValue.navLocation {
         case .introView: IntroView(path: $path)
         case .tourSelectionView: TourSelectionView(path: $path)
+        case .numPeopleView: NumPeopleView(path: $path, tour: navValue.tour!)
+        case .rolesView: RolesView(path: $path, tour: navValue.tour!)
         case .itineraryContainer: ItineraryContainer(path: $path, tour: navValue.tour!)
         case .emptyView: EmptyView()
         case .fhfsIntro, .chtfbIntro, .losIslenosIntro, .stMaloMarkerIntro, .shellBeachIntro, .manilaVillageMarkerIntro, .multipurposeCenterIntro, .townHallIntro, .natureTraceIntro:
