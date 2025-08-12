@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
 
     @StateObject private var viewModel = ProfileViewModel()
+    @StateObject private var postViewModel = PostViewModel()
     @Binding var path: NavigationPath
 
     var body: some View {
@@ -27,11 +28,23 @@ struct ProfileView: View {
                 Text("Settings")
                     .padding()
             }
-            Spacer()
+            if let posts = postViewModel.posts {
+                List {
+                    ForEach(posts) { post in
+                        VStack(alignment: .leading) {
+                            Text("\(post.title ?? "")")
+                            Text("\(post.details ?? "")")
+                        }
+                    }
+                }
+            } else {
+                Text("You don't have any posts yet.")
+            }
         }
         .padding()
         .task {
             try? await viewModel.fetchUserData()
+            try? await postViewModel.getPostsByUser()
         }
     }
 

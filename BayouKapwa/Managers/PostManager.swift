@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct DBPost: Codable {
+struct DBPost: Codable, Identifiable {
     let id: String
     let authorId: String
     let title: String?
@@ -38,7 +38,8 @@ final class PostManager: ObservableObject {
     }
 
     func getPostByAuthor(with id: String) async throws -> [DBPost] {
-        let snapshot = try await postCollection.whereField("author_id", isEqualTo: id).getDocuments()
+        let snapshot = try await postCollection
+            .whereField("author_id", isEqualTo: id).getDocuments()
         return try snapshot.documents.map { document in
             try document.data(as: DBPost.self, decoder: decoder)
         }

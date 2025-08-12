@@ -18,8 +18,9 @@ final class PostViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var details: String = ""
 
-    func getPostsByAuthor(with id: String) async throws {
-        self.posts = try await PostManager.shared.getPostByAuthor(with: id)
+    func getPostsByUser() async throws {
+        let userId = try AuthenticationManager.shared.getAuthenticatedUser().id
+        self.posts = try await PostManager.shared.getPostByAuthor(with: userId)
     }
 
     func createPost() async throws {

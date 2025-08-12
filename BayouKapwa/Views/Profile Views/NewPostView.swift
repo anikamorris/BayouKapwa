@@ -19,6 +19,8 @@ struct NewPostView: View {
                 .padding(.vertical)
             TextEditor(text: $viewModel.details)
                 .frame(minHeight: 100, maxHeight: .infinity)
+                .padding()
+                .border(Color.gray, width: 1)
             Button("Post") {
                 Task {
                     do {

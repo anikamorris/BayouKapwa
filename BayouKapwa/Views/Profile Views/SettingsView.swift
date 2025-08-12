@@ -28,6 +28,7 @@ struct SettingsView: View {
                 }
             }
             .buttonStyle(IntroButton())
+            .padding(.bottom, 24)
             Button("Sign out") {
                 Task {
                     do {
@@ -41,6 +42,7 @@ struct SettingsView: View {
             .buttonStyle(IntroButton())
             .padding(.bottom, 24)
         }
+        .padding()
         .alert(isPresented: $showPasswordResetAlert) {
             Alert(
                 title: Text("Password reset initiated"),
