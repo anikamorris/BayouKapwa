@@ -33,7 +33,7 @@ struct ItineraryContainer: View {
             Button("Next") {
                 switch tour.tourOption {
                 case .allStopsManilaVillage:
-                    path.append(NavigationValue(navLocation: .emptyView, tour: nil))
+                    path.append(NavigationValue(navLocation: .manilaVillageMarkerIntro, tour: nil))
                 case .allStopsStMalo:
                     path.append(NavigationValue(navLocation: .fhfsIntro, tour: nil))
                 case .noStopsManilaVillage:
@@ -44,6 +44,7 @@ struct ItineraryContainer: View {
                     path.append(NavigationValue(navLocation: .emptyView, tour: nil)) // TODO: replace with error view
                 }
             }
+            .buttonStyle(IntroButton())
         }
         .padding()
     }

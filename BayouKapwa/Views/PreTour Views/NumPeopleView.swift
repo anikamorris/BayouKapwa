@@ -10,7 +10,7 @@ import SwiftUI
 struct NumPeopleView: View {
 
     @Binding var path: NavigationPath
-    @State private var numPeople: Int = 1
+    @State private var numPeople: Int = 0
     @State var tour: Tour
 
     var body: some View {
@@ -32,7 +32,7 @@ struct NumPeopleView: View {
             Spacer()
 
             Button("Next") {
-                tour.setNumPeople(to: numPeople)
+                tour.setNumPeople(to: numPeople + 1)
                 path.append(
                     NavigationValue(
                         navLocation: .rolesView,
@@ -40,6 +40,7 @@ struct NumPeopleView: View {
                     )
                 )
             }
+            .buttonStyle(IntroButton())
         }
         .padding()
     }

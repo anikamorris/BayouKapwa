@@ -22,8 +22,17 @@ struct RolesView: View {
             Text("These roles are to help you get the most out of your journey today. We've found they aid in ensuring each of you takes ownership of your experience.")
 
             Picker("Roles", selection: $role) {
-                ForEach(Role.allCases) { value in
-                    Text(value.rawValue)
+                switch tour.numPeople {
+                case 1:
+                    Text("You are all the roles")
+                case 2:
+                    ForEach([Role.navigator, Role.ceremonialist]) { value in
+                        Text(value.rawValue)
+                    }
+                default:
+                    ForEach(Role.allCases) { value in
+                        Text(value.rawValue)
+                    }
                 }
             }
             .pickerStyle(.segmented)
@@ -40,10 +49,10 @@ struct RolesView: View {
 
             Spacer()
 
-            Text("\(role.rawValue)")
-                .font(.title2)
+//            Text("\(role.rawValue)")
+//                .font(.title2)
 
-            Button("Next") {
+            Button("\(role.rawValue)") {
                 tour.setRole(to: role)
                 path.append(
                     NavigationValue(
@@ -52,6 +61,7 @@ struct RolesView: View {
                     )
                 )
             }
+            .buttonStyle(IntroButton())
         }
         .padding()
     }

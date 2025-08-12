@@ -21,6 +21,7 @@ struct IntroView: View {
             Button("Next") {
                 path.append(NavigationValue(navLocation: .tourSelectionView, tour: nil))
             }
+            .buttonStyle(IntroButton())
         }
         .padding()
     }

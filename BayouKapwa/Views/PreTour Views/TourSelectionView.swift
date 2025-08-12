@@ -58,6 +58,7 @@ struct TourSelectionView: View {
                     )
                 )
             }
+            .buttonStyle(IntroButton())
         }
         .padding()
     }

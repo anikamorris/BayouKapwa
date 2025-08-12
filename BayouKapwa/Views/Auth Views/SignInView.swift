@@ -40,7 +40,7 @@ struct SignInView: View {
                     .foregroundStyle(Color.white)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
+                    .background(Color(red: 0.5, green: 0.64, blue: 0.36))
                     .cornerRadius(10)
             }
             .padding(.top)

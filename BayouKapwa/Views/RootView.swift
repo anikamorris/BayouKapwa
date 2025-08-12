@@ -29,6 +29,7 @@ struct RootView: View {
                         Label("Profile", systemImage: "person")
                     }
             }
+            .tint(Color(red: 0.4, green: 0.54, blue: 0.26))
             .onAppear {
                 let user = try? AuthenticationManager.shared.getAuthenticatedUser()
                 self.showAuthView = user == nil
