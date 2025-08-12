@@ -7,7 +7,9 @@
 
 import Foundation
 
-enum NavigationLocation: Hashable {
+enum TourNavigationLocation: Hashable {
+
+    // MARK: Pre-tour
     case introView
     case tourSelectionView
     case numPeopleView
@@ -58,7 +60,17 @@ enum NavigationLocation: Hashable {
     case manilaVillageCompletionView
 }
 
-struct NavigationValue: Hashable {
-    let navLocation: NavigationLocation
+struct TourNavigationValue: Hashable {
+    let navLocation: TourNavigationLocation
     let tour: Tour?
+}
+
+enum ProfileNavigationLocation: Hashable {
+    case profile
+    case settings
+    case newPost
+}
+
+struct ProfileNavigationValue: Hashable {
+    let navLocation: ProfileNavigationLocation
 }

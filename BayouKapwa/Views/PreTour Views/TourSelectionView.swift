@@ -52,13 +52,14 @@ struct TourSelectionView: View {
 
             Button("Next") {
                 path.append(
-                    NavigationValue(
+                    TourNavigationValue(
                         navLocation: .numPeopleView,
                         tour: Tour(tourStop: tourStop, tourLocation: tourLocation)
                     )
                 )
             }
             .buttonStyle(IntroButton())
+            .padding(.bottom, 24)
         }
         .padding()
     }

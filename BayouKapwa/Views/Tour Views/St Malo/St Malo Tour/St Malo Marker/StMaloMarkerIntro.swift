@@ -20,7 +20,7 @@ struct StMaloMarkerIntro: View {
             Text("Where to walk and considerations for your walk")
             Spacer()
             Button("I'm at the marker") {
-                path.append(NavigationValue(navLocation: .stMaloMarkerStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .stMaloMarkerStop, tour: nil))
             }
             .padding()
         }

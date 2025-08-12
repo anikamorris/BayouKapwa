@@ -16,7 +16,7 @@ struct ManilaVillageMarkerStop: View {
             Text("Manila Village Historical Marker")
             Text("Placeholder Description")
             Button("Next stop") {
-                path.append(NavigationValue(navLocation: .multipurposeCenterIntro, tour: nil))
+                path.append(TourNavigationValue(navLocation: .multipurposeCenterIntro, tour: nil))
             }
         }
     }

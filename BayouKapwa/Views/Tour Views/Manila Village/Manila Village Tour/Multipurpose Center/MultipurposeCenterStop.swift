@@ -16,7 +16,7 @@ struct MultipurposeCenterStop: View {
             Text("Jean Lafitte Multipurpose Center")
             Text("Placeholder Description")
             Button("Next stop") {
-                path.append(NavigationValue(navLocation: .townHallIntro, tour: nil))
+                path.append(TourNavigationValue(navLocation: .townHallIntro, tour: nil))
             }
         }
     }

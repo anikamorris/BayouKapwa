@@ -15,7 +15,7 @@ struct MultipurposeCenterCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .multipurposeCenterStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .multipurposeCenterStop, tour: nil))
             }
         }
     }

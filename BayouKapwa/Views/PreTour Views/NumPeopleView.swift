@@ -34,13 +34,14 @@ struct NumPeopleView: View {
             Button("Next") {
                 tour.setNumPeople(to: numPeople + 1)
                 path.append(
-                    NavigationValue(
+                    TourNavigationValue(
                         navLocation: .rolesView,
                         tour: tour
                     )
                 )
             }
             .buttonStyle(IntroButton())
+            .padding(.bottom, 24)
         }
         .padding()
     }

@@ -15,7 +15,7 @@ struct LosIslenosCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .losIslenosStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .losIslenosStop, tour: nil))
             }
         }
     }

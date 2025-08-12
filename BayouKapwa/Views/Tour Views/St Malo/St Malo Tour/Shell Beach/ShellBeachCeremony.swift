@@ -15,7 +15,7 @@ struct ShellBeachCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .shellBeachStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .shellBeachStop, tour: nil))
             }
         }
     }

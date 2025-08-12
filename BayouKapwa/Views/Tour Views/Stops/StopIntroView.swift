@@ -10,7 +10,7 @@ import SwiftUI
 struct StopIntroView: View {
 
     @Binding var path: NavigationPath
-    let location: NavigationLocation
+    let location: TourNavigationLocation
     let stop: TourStop
 
     var body: some View {
@@ -31,13 +31,13 @@ struct StopIntroView: View {
             Spacer()
             if location == .fhfsIntro || location == .chtfbIntro {
                 Button("Skip this stop") {
-                    path.append(NavigationValue(navLocation: nextStop(), tour: nil))
+                    path.append(TourNavigationValue(navLocation: nextStop(), tour: nil))
                 }
                 .buttonStyle(.bordered)
                 .padding()
             }
             Button("I'm on my way") {
-                path.append(NavigationValue(navLocation: nextLocation(), tour: nil))
+                path.append(TourNavigationValue(navLocation: nextLocation(), tour: nil))
             }
             .buttonStyle(.bordered)
             .padding()
@@ -45,7 +45,7 @@ struct StopIntroView: View {
         .padding()
     }
 
-    private func nextLocation() -> NavigationLocation {
+    private func nextLocation() -> TourNavigationLocation {
         switch location {
         case .fhfsIntro: return .fhfsCeremony
         case .chtfbIntro: return .chtfbCeremony
@@ -60,7 +60,7 @@ struct StopIntroView: View {
         }
     }
 
-    private func nextStop() -> NavigationLocation {
+    private func nextStop() -> TourNavigationLocation {
         switch location {
         case .fhfsIntro: return .chtfbIntro
         case .chtfbIntro: return .losIslenosIntro

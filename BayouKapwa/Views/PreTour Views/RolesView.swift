@@ -49,19 +49,17 @@ struct RolesView: View {
 
             Spacer()
 
-//            Text("\(role.rawValue)")
-//                .font(.title2)
-
             Button("\(role.rawValue)") {
                 tour.setRole(to: role)
                 path.append(
-                    NavigationValue(
+                    TourNavigationValue(
                         navLocation: .itineraryContainer,
                         tour: tour
                     )
                 )
             }
             .buttonStyle(IntroButton())
+            .padding(.bottom, 24)
         }
         .padding()
     }

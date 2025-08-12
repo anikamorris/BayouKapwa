@@ -12,7 +12,7 @@ struct TourStop {
     let introDescription: String?
     let address: String?
 
-    init(from navLocation: NavigationLocation) {
+    init(from navLocation: TourNavigationLocation) {
         switch navLocation {
         case .fhfsIntro, .fhfsCeremony, .fhfsStop:
             name = "Fred Hampton Free Store"

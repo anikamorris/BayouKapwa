@@ -16,7 +16,7 @@ struct LosIslenosStop: View {
             Text("Los Isleños Museum Complex")
             Text("Placeholder Description")
             Button("Next stop") {
-                path.append(NavigationValue(navLocation: .stMaloMarkerIntro, tour: nil))
+                path.append(TourNavigationValue(navLocation: .stMaloMarkerIntro, tour: nil))
             }
         }
     }

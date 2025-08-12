@@ -16,7 +16,7 @@ struct StMaloMarkerStop: View {
             Text("St. Malo Historical Marker")
             Text("Placeholder description")
             Button("Next stop") {
-                path.append(NavigationValue(navLocation: .shellBeachIntro, tour: nil))
+                path.append(TourNavigationValue(navLocation: .shellBeachIntro, tour: nil))
             }
         }
     }

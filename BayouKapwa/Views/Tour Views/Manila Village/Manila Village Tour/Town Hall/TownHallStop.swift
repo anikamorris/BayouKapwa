@@ -16,7 +16,7 @@ struct TownHallStop: View {
             Text("Jean Lafitte Town Hall")
             Text("Placeholder Description")
             Button("Next stop") {
-                path.append(NavigationValue(navLocation: .natureTraceIntro, tour: nil))
+                path.append(TourNavigationValue(navLocation: .natureTraceIntro, tour: nil))
             }
         }
     }
