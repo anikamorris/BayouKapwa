@@ -23,7 +23,7 @@ struct ProfileView: View {
                 Text(user.name)
                     .font(.title2)
                     .padding()
-                Text(user.email)
+                Text(user.email ?? "")
             }
             Button("Reset Password") {
                 Task {

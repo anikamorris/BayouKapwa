@@ -8,50 +8,36 @@
 import Foundation
 import FirebaseFirestore
 
-struct DBUser {
+struct DBUser: Codable {
     let id: String
     let name: String
-    let email: String
-    let photoUrl: String?
-    let dateCreated: Date
+    let email: String?
+    let dateCreated: Date?
 }
 
 final class UserManager: ObservableObject {
 
     static let shared = UserManager()
+    private let userCollection = Firestore.firestore().collection("users")
+    private let encoder: Firestore.Encoder = {
+        let encoder = Firestore.Encoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        return encoder
+    }()
+    private let decoder: Firestore.Decoder = {
+        let decoder = Firestore.Decoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+
     private init() { }
 
     func createNewUser(auth: LocalAuthDataResult, name: String) async throws {
-        var userData: [String : Any] = [
-            "user_id" : auth.id,
-            "name" : name,
-            "email" : auth.email,
-            "date_created" : Timestamp()
-        ]
-        if let photoUrl = auth.photoUrl {
-            userData["photo_url"] = photoUrl
-        }
-        try await Firestore.firestore().collection("users").document(auth.id).setData(userData)
+        let dbUser = DBUser(id: auth.id, name: name, email: auth.email, dateCreated: Date())
+        try userCollection.document(auth.id).setData(from: dbUser, encoder: encoder)
     }
 
     func getUser(from userId: String) async throws -> DBUser {
-        let snapshot = try await Firestore.firestore().collection("users").document(userId).getDocument()
-        guard
-            let data = snapshot.data(),
-            let userId = data["user_id"] as? String,
-            let name = data["name"] as? String,
-            let email = data["email"] as? String,
-            let dateCreated = data["date_created"] as? Date
-        else {
-            throw URLError(.badServerResponse)
-        }
-        let photoUrl = data["photo_url"] as? String
-        return DBUser(
-            id: userId,
-            name: name,
-            email: email,
-            photoUrl: photoUrl,
-            dateCreated: dateCreated
-        )
+        try await userCollection.document(userId).getDocument(as: DBUser.self, decoder: decoder)
     }
 }
