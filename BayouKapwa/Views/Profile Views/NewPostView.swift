@@ -16,11 +16,20 @@ struct NewPostView: View {
     var body: some View {
         VStack {
             TextField("Title", text: $viewModel.title)
-                .padding(.vertical)
+                .padding()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(red: 0.45, green: 0.59, blue: 0.31), lineWidth: 2)
+                }
             TextEditor(text: $viewModel.details)
                 .frame(minHeight: 100, maxHeight: .infinity)
                 .padding()
-                .border(Color.gray, width: 1)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(red: 0.45, green: 0.59, blue: 0.31), lineWidth: 2)
+                }
             Button("Post") {
                 Task {
                     do {
@@ -32,6 +41,7 @@ struct NewPostView: View {
                 }
             }
             .buttonStyle(IntroButton())
+            .padding(.vertical)
         }
         .padding()
         .alert(isPresented: $showError) {

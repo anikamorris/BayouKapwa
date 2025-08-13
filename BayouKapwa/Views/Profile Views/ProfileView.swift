@@ -14,29 +14,14 @@ struct ProfileView: View {
     @Binding var path: NavigationPath
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             if let user = viewModel.user {
                 Text(user.name)
-                    .font(.title)
-                    .padding()
-            }
-            NavigationLink(value: ProfileNavigationValue(navLocation: .newPost)) {
-                Text("New Post")
-                    .padding()
-            }
-            NavigationLink(value: ProfileNavigationValue(navLocation: .settings)) {
-                Text("Settings")
+                    .font(.largeTitle)
                     .padding()
             }
             if let posts = postViewModel.posts {
-                List {
-                    ForEach(posts) { post in
-                        VStack(alignment: .leading) {
-                            Text("\(post.title ?? "")")
-                            Text("\(post.details ?? "")")
-                        }
-                    }
-                }
+                PostsListView(posts: posts)
             } else {
                 Text("You don't have any posts yet.")
             }
@@ -45,6 +30,18 @@ struct ProfileView: View {
         .task {
             try? await viewModel.fetchUserData()
             try? await postViewModel.getPostsByUser()
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                NavigationLink(value: ProfileNavigationValue(navLocation: .newPost)) {
+                    Image(systemName: "plus.circle")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(value: ProfileNavigationValue(navLocation: .settings)) {
+                    Image(systemName: "gear")
+                }
+            }
         }
     }
 
