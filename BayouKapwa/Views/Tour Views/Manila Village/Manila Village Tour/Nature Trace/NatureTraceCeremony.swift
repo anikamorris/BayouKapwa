@@ -15,7 +15,7 @@ struct NatureTraceCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .natureTraceStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .natureTraceStop, tour: nil))
             }
         }
     }

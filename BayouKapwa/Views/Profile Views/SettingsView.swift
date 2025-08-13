@@ -1,30 +1,22 @@
 //
-//  ProfileView.swift
+//  SettingsView.swift
 //  BayouKapwa
 //
-//  Created by Anika Morris on 8/1/25.
+//  Created by Anika Morris on 8/12/25.
 //
 
 import SwiftUI
 
-struct ProfileView: View {
+struct SettingsView: View {
 
     @StateObject private var viewModel = ProfileViewModel()
     @State private var showPasswordResetAlert: Bool = false
     @State private var showError: Bool = false
     @Binding var showAuthView: Bool
+    @Binding var path: NavigationPath
 
     var body: some View {
         VStack {
-            if let user = viewModel.user {
-                Text(user.id)
-                    .font(.title2)
-                    .padding()
-                Text(user.name)
-                    .font(.title2)
-                    .padding()
-                Text(user.email)
-            }
             Button("Reset Password") {
                 Task {
                     do {
@@ -35,6 +27,8 @@ struct ProfileView: View {
                     }
                 }
             }
+            .buttonStyle(IntroButton())
+            .padding(.bottom, 24)
             Button("Sign out") {
                 Task {
                     do {
@@ -45,11 +39,10 @@ struct ProfileView: View {
                     }
                 }
             }
+            .buttonStyle(IntroButton())
+            .padding(.bottom, 24)
         }
         .padding()
-        .task {
-            try? await viewModel.fetchUserData()
-        }
         .alert(isPresented: $showPasswordResetAlert) {
             Alert(
                 title: Text("Password reset initiated"),

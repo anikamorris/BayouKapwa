@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IntroHoursView: View {
 
-    let location: NavigationLocation
+    let location: TourNavigationLocation
 
     var body: some View {
         if location == .chtfbIntro {

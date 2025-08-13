@@ -15,7 +15,7 @@ struct FHFStoreCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .fhfsStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .fhfsStop, tour: nil))
             }
         }
     }

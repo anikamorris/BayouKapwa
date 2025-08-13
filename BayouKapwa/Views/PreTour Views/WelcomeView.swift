@@ -22,9 +22,10 @@ struct WelcomeView: View {
                 .padding()
             Spacer()
             Button("Let's Go") {
-                path.append(NavigationValue(navLocation: .introView, tour: nil))
+                path.append(TourNavigationValue(navLocation: .introView, tour: nil))
             }
             .buttonStyle(IntroButton())
+            .padding(.bottom, 24)
         }
         .padding()
     }

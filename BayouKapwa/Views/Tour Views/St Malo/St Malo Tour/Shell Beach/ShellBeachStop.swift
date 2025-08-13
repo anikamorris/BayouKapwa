@@ -16,7 +16,7 @@ struct ShellBeachStop: View {
             Text("Shell Beach")
             Text("Placeholder description")
             Button("Finish Tour") {
-                path.append(NavigationValue(navLocation: .stMaloCompletionView, tour: nil))
+                path.append(TourNavigationValue(navLocation: .stMaloCompletionView, tour: nil))
             }
         }
     }

@@ -16,7 +16,7 @@ struct NatureTraceStop: View {
             Text("Nature Wetland Trace")
             Text("Placeholder Description")
             Button("Finish Tour") {
-                path.append(NavigationValue(navLocation: .manilaVillageCompletionView, tour: nil))
+                path.append(TourNavigationValue(navLocation: .manilaVillageCompletionView, tour: nil))
             }
         }
     }

@@ -28,7 +28,7 @@ struct CHTFBooksStop: View {
             }
             Spacer()
             Button("Next stop") {
-                path.append(NavigationValue(navLocation: .losIslenosIntro, tour: nil))
+                path.append(TourNavigationValue(navLocation: .losIslenosIntro, tour: nil))
             }
             .buttonStyle(.bordered)
         }

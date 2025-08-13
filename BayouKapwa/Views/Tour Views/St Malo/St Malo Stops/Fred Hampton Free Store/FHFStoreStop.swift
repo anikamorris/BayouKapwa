@@ -16,7 +16,7 @@ struct FHFStoreStop: View {
             Text("Fred Hampton Free Store")
             Text("'Phantom Visions' Mural")
             Button("Next stop") {
-                path.append(NavigationValue(navLocation: .chtfbIntro, tour: nil))
+                path.append(TourNavigationValue(navLocation: .chtfbIntro, tour: nil))
             }
         }
     }

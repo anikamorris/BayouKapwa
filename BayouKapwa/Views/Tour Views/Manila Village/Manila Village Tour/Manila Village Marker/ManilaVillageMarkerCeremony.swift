@@ -15,7 +15,7 @@ struct ManilaVillageMarkerCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .manilaVillageMarkerStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .manilaVillageMarkerStop, tour: nil))
             }
         }
     }

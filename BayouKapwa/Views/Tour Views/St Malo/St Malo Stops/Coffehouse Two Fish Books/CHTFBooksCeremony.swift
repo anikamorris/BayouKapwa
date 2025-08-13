@@ -15,7 +15,7 @@ struct CHTFBooksCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .chtfbStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .chtfbStop, tour: nil))
             }
         }
     }

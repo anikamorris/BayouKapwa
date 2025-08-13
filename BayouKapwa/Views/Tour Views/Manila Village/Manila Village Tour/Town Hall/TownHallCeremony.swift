@@ -15,7 +15,7 @@ struct TownHallCeremony: View {
         VStack {
             Text("Ceremony")
             Button("Finished") {
-                path.append(NavigationValue(navLocation: .townHallStop, tour: nil))
+                path.append(TourNavigationValue(navLocation: .townHallStop, tour: nil))
             }
         }
     }
